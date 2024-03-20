@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Evento {
     @Id
     @GeneratedValue
-    private long id;
+    private long evento_id;
     @Column(name="titolo")
     private String titolo;
     @Column(name="data_evento")
@@ -31,12 +31,10 @@ public class Evento {
 
     }
 
-    public long getId() {
-        return id;
-    }
+    public long getId() {return evento_id;}
 
     public void setId(long id) {
-        this.id = id;
+        this.evento_id = id;
     }
 
     public String getTitolo() {
@@ -82,7 +80,7 @@ public class Evento {
     @Override
     public String toString() {
         return "Evento{" +
-                "id=" + id +
+                "id=" + evento_id +
                 ", titolo='" + titolo + '\'' +
                 ", dataEvento=" + dataEvento +
                 ", descrizione='" + descrizione + '\'' +

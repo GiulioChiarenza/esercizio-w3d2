@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 public class Partecipazione {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long partecipazione_id;
+    @Enumerated(EnumType.STRING)
     private PartecipazioneStato partecipazioneStato;
 
     @ManyToOne
@@ -26,11 +27,11 @@ public class Partecipazione {
     }
 
     public long getId() {
-        return id;
+        return partecipazione_id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.partecipazione_id = id;
     }
 
     public PartecipazioneStato getPartecipazioneStato() {

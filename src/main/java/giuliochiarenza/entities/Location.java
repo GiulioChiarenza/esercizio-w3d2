@@ -2,28 +2,35 @@ package giuliochiarenza.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table (name= "location")
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long location_id;
     private String nome;
     private String città;
 
+
+
     public Location(){}
-    public Location(long id, String nome, String città) {
-        this.id = id;
+    public Location( String nome, String città) {
+
         this.nome = nome;
         this.città = città;
     }
 
+
+
+
     public long getId() {
-        return id;
+        return location_id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.location_id = id;
     }
 
     public String getNome() {
@@ -45,7 +52,7 @@ public class Location {
     @Override
     public String toString() {
         return "Location{" +
-                "id=" + id +
+                "id=" + location_id +
                 ", nome='" + nome + '\'' +
                 ", città='" + città + '\'' +
                 '}';

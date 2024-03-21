@@ -14,11 +14,12 @@ public class Persona {
     private String cognome;
     private String email;
     private String data_di_nascita;
+    @Enumerated(EnumType.STRING)
     private Sesso sesso;
 
 
     @OneToMany(mappedBy = "persona")
-    private List<Partecipazione> lista_partrcipazione;
+    private List<Partecipazione> listaPartrcipazione;
 
 
     public Persona(){}
@@ -83,6 +84,11 @@ public class Persona {
         this.sesso = sesso;
     }
 
+    public List<Partecipazione> getListaPartecipazioni() {
+        return listaPartrcipazione;
+    }
 
-
+    public void setListaPartrcipazione(List<Partecipazione> listaPartrcipazione) {
+        this.listaPartrcipazione = listaPartrcipazione;
+    }
 }

@@ -1,8 +1,11 @@
 package giuliochiarenza.entities;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "events")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Evento {
     @Id
     @GeneratedValue
@@ -18,6 +21,13 @@ public class Evento {
     private EventoType eventoType;
     @Column(name="numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
+
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.REMOVE)
+    private List<Partecipazione> listaPartecipazioni;
+    @ManyToOne
+    @JoinColumn(name="location_id",referencedColumnName = "location_id", nullable = false)
+    private Location location;
+
 
     public Evento(){
 
